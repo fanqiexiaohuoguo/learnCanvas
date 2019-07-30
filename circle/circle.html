@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆形</title>
+</head>
+<body>
+<canvas id="canvas" width="400" height="300"></canvas>
+</body>
+<script>
+    function drawCircle(mycanvas) {
+        if (!document.getElementById("canvas")) {
+            return false;
+        }
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+        context.fillStyle = "#eeeeef";//设置或返回用于笔触的颜色、渐变或模式。
+        context.fillRect(0, 0, 200, 200);//设置用于填充绘图的颜色、渐变或模式
+        for (var i = 0; i <= 10; i++) {
+            context.beginPath();
+            // 绘制弧线及圆的方法
+            context.arc(i * 20, i * 20, i * 10, 0, Math.PI * 2, true);
+            context.closePath();
+            context.fillStyle = "rgba(20,187,60,0.6)";
+            context.fill();
+        }
+    }
+    window.onload=drawCircle;
+
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>渐变效果</title>
+</head>
+<body>
+<canvas id="canvas" width="800" height="900"></canvas>
+</body>
+<script>
+    // LinearGradient对象 线性渐变
+    function drawGredient(id){
+        if (!document.getElementById(id)) {return false;}
+        var c=document.getElementById(id);
+        var ctx=c.getContext("2d");
+        var gradient=ctx.createLinearGradient(0,0,170,0);//创建线性的渐变对象
+        gradient.addColorStop("0","magenta");
+        gradient.addColorStop("0.5","blue");
+        gradient.addColorStop("1.0","red");
+        // 用渐变进行填充
+        ctx.strokeStyle=gradient;
+        ctx.lineWidth=5;
+        ctx.strokeRect(20,20,150,100);
+
+    }
+    // RadialGradient对象-径向渐变
+    function drawGredient2(id){
+        if (!document.getElementById(id)) {return false;}
+        var c=document.getElementById(id);
+        var ctx=c.getContext("2d");
+        var gradient=ctx.createRadialGradient(400,0,0,400,0,400);//创建线性的渐变对象
+        gradient.addColorStop("0.1","magenta");
+        gradient.addColorStop("0.3","blue");
+        gradient.addColorStop("1.0","red");
+        // 用渐变进行填充
+        ctx.fillStyle=gradient;
+        ctx.fillRect(0,0,500,500);
+    }
+    window.onload=drawGredient2("canvas");
+</script>
+</html>

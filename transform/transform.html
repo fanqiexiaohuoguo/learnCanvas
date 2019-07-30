@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变形图形</title>
+</head>
+<body>
+<!--平移缩放旋转-->
+<canvas id="canvas" width="800" height="900"></canvas>
+</body>
+<script>
+    function draw(id){
+        if (!document.getElementById(id)) {return false;}
+        var c=document.getElementById(id);
+        var ctx=c.getContext("2d");
+        // 其实是为了显示一个底色，以显示画板的区域
+        ctx.fillStyle="#eeeeef";
+        ctx.fillRect(0,0,500,500);
+        ctx.translate(200,50);
+        ctx.fillStyle="rgba(0,0,233,0.3)";
+        for (var i=0;i<30;i++){
+            ctx.translate(25,25);
+            ctx.scale(0.95,0.95);
+            ctx.rotate(Math.PI/10);
+            ctx.fillRect(0,0,100,50);
+        }
+    }
+    window.onload=draw("canvas");
+</script>
+</html>
